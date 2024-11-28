@@ -52,7 +52,7 @@ CREATE TABLE Galleta (
     id_galleta INT PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(200) NOT NULL,
     cantidad INT NOT NULL,
-    descripcion TEXT
+    descripcion VARCHAR(200)
 );
 
 -- Relación Insumo -> Galleta (Produce, N:1)
@@ -78,7 +78,7 @@ CREATE TABLE Merma_galleta (
 CREATE TABLE Venta (
     id_venta INT PRIMARY KEY AUTO_INCREMENT,
     fecha VARCHAR(30) NOT NULL,
-    descripcion TEXT
+    descripcion VARCHAR(100)
 );
 
 -- Tabla que relaciona Venta y Galleta (relación N:M)
