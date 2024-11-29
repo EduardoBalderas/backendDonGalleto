@@ -20,22 +20,11 @@ import java.util.logging.Logger;
 public class ControllerGalleta {
     static private DaoGalleta d = new DaoGalleta();
     
-    public List<Galleta> getAll() {
-        try {
+    public List<Galleta> getAll() throws ClassNotFoundException, SQLException, IOException {
+        
             return d.getAllG();
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            Logger.getLogger(ControllerGalleta.class.getName()).log(Level.SEVERE, null, ex);
-            return new ArrayList<>();
-        }
+       
     }
     
-    // Nuevo método para obtener una venta y sus detalles
-    public List<Galleta> getVentaDetalles(int ventaId) {
-        try {
-            return d.getVentaDetalles(ventaId);
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            Logger.getLogger(ControllerGalleta.class.getName()).log(Level.SEVERE, null, ex);
-            return new ArrayList<>();
-        }
-    }
+   
 }

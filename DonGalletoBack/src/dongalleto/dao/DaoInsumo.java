@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DaoInsumo {
 
@@ -68,5 +70,19 @@ public class DaoInsumo {
         }
 
         return insumos;
+    }
+    
+    
+    public static void main(String[] args) {
+        DaoInsumo dg=new DaoInsumo();
+        try {
+            System.out.println(dg.getAllInsumos());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DaoInsumo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoInsumo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DaoInsumo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

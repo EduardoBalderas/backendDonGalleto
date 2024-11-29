@@ -12,6 +12,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import dongalleto.controller.ControllerInsumo;
 import dongalleto.modelo.Insumo;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @Path("insumo")
@@ -20,10 +22,10 @@ public class RESTInsumo {
     @Path("getInsumos")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getInsumos() {
+    public Response getInsumos() throws ClassNotFoundException, SQLException, IOException {
         String out;
         ControllerInsumo controller = new ControllerInsumo();
-        List<Insumo> listaInsumos = controller.getAll();
+        List<Insumo> listaInsumos = controller.getAllInsumo();
         if (listaInsumos.isEmpty()) {
             out = "{\"message\":\"No se encontraron insumos\"}";
             return Response.status(Response.Status.NO_CONTENT).entity(out).build();

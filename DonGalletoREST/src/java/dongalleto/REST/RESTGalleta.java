@@ -14,17 +14,16 @@ import java.util.List;
 import dongalleto.controller.ControllerGalleta;
 import dongalleto.modelo.Galleta;
 import jakarta.ws.rs.PathParam;
+import java.io.IOException;
+import java.sql.SQLException;
 
-/**
- *
- * @author Aaron
- */
+
 @Path("galleta")
 public class RESTGalleta {
     @Path("getGalleta")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getGalleta() {
+    public Response getGalleta() throws ClassNotFoundException, SQLException, IOException {
         String out = "";
         ControllerGalleta galleta = new ControllerGalleta();
         List<Galleta> listaGalleta = galleta.getAll();
@@ -34,20 +33,6 @@ public class RESTGalleta {
         return Response.ok(out).build();
     }
     
-    // Nuevo endpoint para obtener detalles de una venta específica
-    @Path("getVentaDetalles/{ventaId}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getVentaDetalles(@PathParam("ventaId") int ventaId) {
-        String out = "";
-        ControllerGalleta controller = new ControllerGalleta();
-        
-        List<Galleta> listaDetalles = controller.getVentaDetalles(ventaId);
-        
-        Gson objGson = new Gson();
-        out = objGson.toJson(listaDetalles);
-        
-        return Response.ok(out).build();
-    }
+   
 }
 

@@ -8,18 +8,5 @@ import java.util.List;
 
 public class InsumoExternoAppService {
 
-    private final DaoInsumo dao;
-
-    public InsumoExternoAppService() {
-        this.dao = new DaoInsumo();
-    }
-
-    public List<Insumo> getAllInsumos() {
-        try {
-            return dao.getAllInsumos();
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            ex.printStackTrace();
-            return null;  // Maneja el error adecuadamente si es necesario
-        }
-    }
+    
 }

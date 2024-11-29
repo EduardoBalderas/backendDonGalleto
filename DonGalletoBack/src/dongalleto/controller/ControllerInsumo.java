@@ -7,20 +7,18 @@ package dongalleto.controller;
 import dongalleto.modelo.Insumo;
 import java.util.List;
 import dongalleto.appservice.InsumoExternoAppService;
+import dongalleto.dao.DaoInsumo;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class ControllerInsumo {
-    private final InsumoExternoAppService appService;
 
-    public ControllerInsumo() {
-        this.appService = new InsumoExternoAppService();
+    static DaoInsumo di=new DaoInsumo();
+    
+    public List<Insumo> getAllInsumo() throws ClassNotFoundException, SQLException, IOException {
+        
+            return di.getAllInsumos();
+       
     }
-
-    public List<Insumo> getAll() {
-    try {
-        return appService.getAllInsumos();
-    } catch (Exception ex) {
-        ex.printStackTrace();
-        return null;  // Puedes retornar una lista vacía o un mensaje de error más específico
-    }
-}
+    
 }

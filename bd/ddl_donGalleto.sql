@@ -1,4 +1,4 @@
-CREATE DATABASE don_galleto;
+CREATE DATABASE if not exists don_galleto;
 USE don_galleto;
 	
 
@@ -31,7 +31,6 @@ CREATE TABLE Insumo (
 CREATE TABLE Compra_Insumo (
     id_compra INT,
     id_insumo INT,
-    cantidad INT NOT NULL,
     PRIMARY KEY (id_compra, id_insumo),
     FOREIGN KEY (id_compra) REFERENCES Compra(id_compra),
     FOREIGN KEY (id_insumo) REFERENCES Insumo(id_insumo)
@@ -52,7 +51,8 @@ CREATE TABLE Galleta (
     id_galleta INT PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(200) NOT NULL,
     cantidad INT NOT NULL,
-    descripcion VARCHAR(200)
+    descripcion VARCHAR(200),
+    precio double not null
 );
 
 -- Relación Insumo -> Galleta (Produce, N:1)
