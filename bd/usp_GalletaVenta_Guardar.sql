@@ -19,7 +19,7 @@ BEGIN
     IF out_Venta_Id = 0 THEN
         -- Insertar la venta principal
         INSERT INTO Venta (
-            Fecha,
+            GETDATE(),
             Descripcion,
             VentaTotal
         )
