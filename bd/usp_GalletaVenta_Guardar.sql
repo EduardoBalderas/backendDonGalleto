@@ -19,7 +19,7 @@ BEGIN
     IF out_Venta_Id = 0 THEN
         -- Insertar la venta principal
         INSERT INTO Venta (
-            GETDATE(),
+            Fecha,
             Descripcion,
             VentaTotal
         )
@@ -45,7 +45,7 @@ BEGIN
     ELSE
         -- Actualizar la venta existente
         UPDATE Venta
-        SET Fecha = GETDATE(),
+        SET Fecha = in_Fecha,
             Descripcion = in_Descripcion
         WHERE Venta_Id = out_Venta_Id;
 

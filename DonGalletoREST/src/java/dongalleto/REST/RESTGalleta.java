@@ -13,6 +13,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import dongalleto.controller.ControllerGalleta;
 import dongalleto.modelo.Galleta;
+import jakarta.ws.rs.PathParam;
 
 /**
  *
@@ -30,6 +31,22 @@ public class RESTGalleta {
         Gson objGson = new Gson();
         out = objGson.toJson(listaGalleta);
         System.out.println(listaGalleta);
+        return Response.ok(out).build();
+    }
+    
+    // Nuevo endpoint para obtener detalles de una venta específica
+    @Path("getVentaDetalles/{ventaId}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getVentaDetalles(@PathParam("ventaId") int ventaId) {
+        String out = "";
+        ControllerGalleta controller = new ControllerGalleta();
+        
+        List<Galleta> listaDetalles = controller.getVentaDetalles(ventaId);
+        
+        Gson objGson = new Gson();
+        out = objGson.toJson(listaDetalles);
+        
         return Response.ok(out).build();
     }
 }
