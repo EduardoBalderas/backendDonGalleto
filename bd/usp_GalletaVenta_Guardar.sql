@@ -45,7 +45,7 @@ BEGIN
     ELSE
         -- Actualizar la venta existente
         UPDATE Venta
-        SET Fecha = in_Fecha,
+        SET Fecha = GETDATE(),
             Descripcion = in_Descripcion
         WHERE Venta_Id = out_Venta_Id;
 
