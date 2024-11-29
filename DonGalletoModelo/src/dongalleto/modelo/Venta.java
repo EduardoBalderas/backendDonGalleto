@@ -1,66 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dongalleto.modelo;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Sergio Esteban Vázquez Rizo
  */
-public class Venta {
- private int id_venta;
- private String fecha;
- private String descrpcion;
 
+public class Venta {
+    private int ventaId;
+    private LocalDate fecha;
+    private String descripcion;
+    private List<DetalleVenta> detalles;
+    private double ventaTotal;
+    
+    // Constructores
     public Venta() {
     }
-
-    public Venta(String fecha, String descrpcion) {
+    
+    public Venta(int ventaId, LocalDate fecha, String descripcion, List<DetalleVenta> detalles, double ventaTotal) {
+        this.ventaId = ventaId;
         this.fecha = fecha;
-        this.descrpcion = descrpcion;
+        this.descripcion = descripcion;
+        this.detalles = detalles;
+        this.ventaTotal = ventaTotal;
+    }
+    
+    // Getters y Setters
+    public int getVentaId() {
+        return ventaId;
     }
 
-    public Venta(int id_venta, String fecha, String descrpcion) {
-        this.id_venta = id_venta;
-        this.fecha = fecha;
-        this.descrpcion = descrpcion;
+    public void setVentaId(int ventaId) {
+        this.ventaId = ventaId;
     }
 
-    public int getId_venta() {
-        return id_venta;
-    }
-
-    public void setId_venta(int id_venta) {
-        this.id_venta = id_venta;
-    }
-
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public String getDescrpcion() {
-        return descrpcion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescrpcion(String descrpcion) {
-        this.descrpcion = descrpcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Venta{");
-        sb.append("id_venta:").append(id_venta);
-        sb.append(", fecha:").append(fecha);
-        sb.append(", descrpcion:").append(descrpcion);
-        sb.append('}');
-        return sb.toString();
+    public List<DetalleVenta> getDetalles() {
+        return detalles;
     }
- 
- 
+
+    public void setDetalles(List<DetalleVenta> detalles) {
+        this.detalles = detalles;
+    }
+
+    public double getVentaTotal() {
+        return ventaTotal;
+    }
+
+    public void setVentaTotal(double ventaTotal) {
+        this.ventaTotal = ventaTotal;
+    }
 }

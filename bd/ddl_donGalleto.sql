@@ -74,19 +74,17 @@ CREATE TABLE Merma_galleta (
     FOREIGN KEY (id_galleta) REFERENCES Galleta(id_galleta)
 );
 
--- Tabla Venta
 CREATE TABLE Venta (
-    id_venta INT PRIMARY KEY AUTO_INCREMENT,
-    fecha VARCHAR(30) NOT NULL,
-    descripcion VARCHAR(100)
+    Venta_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE,
+    Descripcion VARCHAR(100),
+    VentaTotal DECIMAL(10,2) NOT NULL
 );
 
--- Tabla que relaciona Venta y Galleta (relación N:M)
-CREATE TABLE Venta_Galleta (
-    id_venta INT,
-    id_galleta INT,
-    cantidad INT NOT NULL,
-    PRIMARY KEY (id_venta, id_galleta),
-    FOREIGN KEY (id_venta) REFERENCES Venta(id_venta),
-    FOREIGN KEY (id_galleta) REFERENCES Galleta(id_galleta)
+CREATE TABLE DetalleVenta (
+    DetalleVenta_Id INT AUTO_INCREMENT PRIMARY KEY,
+    Venta_Id INT,
+    Galleta_Id INT,
+    Cantidad INT,
+    FOREIGN KEY (Venta_Id) REFERENCES Venta(Venta_Id)
 );

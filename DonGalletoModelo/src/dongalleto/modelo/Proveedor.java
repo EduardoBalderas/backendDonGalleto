@@ -1,3 +1,4 @@
+package dongalleto.modelo;
 public class Proveedor {
     private int idProveedor;
     private String nombre;
