@@ -10,7 +10,7 @@ BEGIN
         v.Fecha,
         v.Descripcion,
         v.VentaTotal,
-        dv.Detalle_Id, -- Asegúrate de que este campo exista en tu tabla DetalleVenta
+        dv.DetalleVenta_Id, -- Asegúrate de que este campo exista en tu tabla DetalleVenta
         dv.Galleta_Id,
         dv.Cantidad
     FROM 
